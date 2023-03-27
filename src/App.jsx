@@ -12,7 +12,7 @@ function App() {
     <Navbar/>
     <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/form" element={<Form />} />
+          <Route exact path="https://snapztick.vercel.app/form" element={<Form />} />
     </Routes>
     </>
           
