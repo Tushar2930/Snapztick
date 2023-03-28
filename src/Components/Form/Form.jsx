@@ -1,3 +1,4 @@
+import axios from "axios";
 import React,{useState} from "react";
 
 export default function Form() {
@@ -10,29 +11,43 @@ const [samples, setSamples] = useState(0);
 const handleSubmit = async(e) => {
   try {
     e.preventDefault();
-  const data=await fetch("https://stablediffusionapi.com/api/v3/text2img", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      key:"obPMpDYKHDmlnKzAxma78obdyt5KbzhMsjFadygVRx7I9RjVwkBTvtRAPxfw",
-      prompt:text,
-      negative_prompt:negativePrompt,
-      width,
-      height,
-      samples,
-      num_inference_steps:20,
-      seed:null,
-      guidance_scale:7.5,
-      safety_checker:"yes",
-      webhook:null,
-      track_id:null
+  // const data=await fetch("https://stablediffusionapi.com/api/v3/text2img", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({
+  //     key:"obPMpDYKHDmlnKzAxma78obdyt5KbzhMsjFadygVRx7I9RjVwkBTvtRAPxfw",
+  //     prompt:text,
+  //     negative_prompt:negativePrompt,
+  //     width,
+  //     height,
+  //     samples,
+  //     num_inference_steps:20,
+  //     seed:null,
+  //     guidance_scale:7.5,
+  //     safety_checker:"yes",
+  //     webhook:null,
+  //     track_id:null
 
-    }),
-  });
-  const res=await data.json();
-  console.log(res);
+  //   }),
+  // });
+  //axios post request
+  const data=await axios.post("https://stablediffusionapi.com/api/v3/text2img",{
+    key:"obPMpDYKHDmlnKzAxma78obdyt5KbzhMsjFadygVRx7I9RjVwkBTvtRAPxfw",
+    prompt:text,
+    negative_prompt:negativePrompt,
+    width,
+    height,
+    samples,
+    num_inference_steps:20,
+    seed:null,
+    guidance_scale:7.5,
+    safety_checker:"yes",
+    webhook:null,
+    track_id:null
+  })
+  console.log(data);
     
   } catch (error) {
     console.log(error);
