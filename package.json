@@ -2,6 +2,7 @@
   "name": "snapztick",
   "homepage": "https://Tushar2930.github.io/Snapztick",
   "private": true,
+  "proxy": "https://main--illustrious-maamoul-6b1e08.netlify.app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
