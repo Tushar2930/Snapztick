@@ -8,7 +8,8 @@ const [height, setHeight] = useState(0);
 const [samples, setSamples] = useState(0);
 
 const handleSubmit = async(e) => {
-  e.preventDefault();
+  try {
+    e.preventDefault();
   const data=await fetch("https://stablediffusionapi.com/api/v3/text2img", {
     method: "POST",
     headers: {
@@ -32,6 +33,11 @@ const handleSubmit = async(e) => {
   });
   const res=await data.json();
   console.log(res);
+    
+  } catch (error) {
+    console.log(error);
+  }
+  
 };
 
 
